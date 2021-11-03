@@ -29,13 +29,13 @@
 
 %% Question 2: Summarise the effect increasing width and depth of the architecture had on overfitting
 \newcommand{\questionTwo} {
-\youranswer{improves both the train accuracy, validation accuracy, and train error but worsens the validation error}
+\youranswer{improves the validation accuracy but worsens the validation error, this indicates that our model is likely overfitting to certain samples in the training set and thus only similar samples in the validation set receive accurate classification }
 }
 %helps until the number of parameters becomes too high so that each layer just memorizes the training data, and you can end up with a neural network that fails to generalize well to new unseen data
 
 %% Question 3: Summarise what your results show you about the effect of the tested approaches on overfitting and the performance of the trained model
 \newcommand{\questionThree} {
-\youranswer{Q3} 
+\youranswer{dropout is a very effective technique for mitigating overfitting as it ensures that every node in the network takes on more responsibility for the inputs, for all combinations of hidden units and layers dropout always improved performance.} 
 }
 
 %% Question 4: Give your overall conclusions
@@ -45,7 +45,7 @@
 
 %% Question 5: Explain what overfitting is in detail and in your own words
 \newcommand{\questionFive} {
-\youranswer{Q5}
+\youranswer{the gap between the training error and test error is large as this indicates that the model learned the "noise" in the training data and thus is unable to generalize well to new unseen data such as the test set}
 }
 
 %% Question 6: Discuss ``why'' and ``how'' overfitting occurs, and ``how'' one can identify it is happening
