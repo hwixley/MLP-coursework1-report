@@ -235,9 +235,9 @@ Question Table 2 - Fill in Table 2 with the results from your experiments varyin
     \toprule
         \# hidden layers & val. acc. & generalization gap \\
     \midrule
-         1               &      80.92\%      &     0.803               \\
-         2               &      81.56\%      &    1.456                \\
-         3               &        82.51\%    &     1.538               \\ 
+         1               &      80.92\%      &    0.803               \\
+         2               &      81.56\%      &    1.456               \\
+         3               &      82.51\%      &    1.538               \\ 
     \bottomrule
     \end{tabular}
     \caption{Validation accuracy (\%) and generalization gap (in terms of cross-entropy error) for varying network depths on the EMNIST dataset.}
@@ -261,27 +261,27 @@ Question Table 3 - Fill in Table 3 with the results from your experiments varyin
         Baseline &  -                    &               0.836 &                 0.290 \\
     \midrule
         \multirow{3}*{Dropout}
-                 & 0.7                   &                     &                   \\
-                 & 0.9                   &                     &                   \\
-                 & 0.95                  &                     &                   \\
+                 & 0.7                   &   84.11\%                   &  0.079           \\
+                 & 0.9                   &   84.45\%                   &  0.217           \\
+                 & 0.95                  &   83.99\%                   &  0.315           \\
     \midrule
         \multirow{3}*{L1 penalty}
-                 & 1e-4                   &                     &                   \\
-                 & 1e-3                   &                     &                   \\
-                 & 1e-1                   &                     &                   \\
+                 & 1e-4                   &  84.22\%                   &  0.061           \\
+                 & 1e-3                   &  70.01\%                   &  0.009           \\
+                 & 1e-1                   &  1.98\%                    &  0               \\
     \midrule
         \multirow{3}*{L2 penalty}  
-                 & 1e-4                   &                     &                   \\
-                 & 1e-3                   &                     &                   \\
-                 & 1e-1                   &                     &                   \\
+                 & 1e-4                   &  83.46\%                   & 0.242            \\
+                 & 1e-3                   &  83.47\%                   & 0.040            \\
+                 & 1e-1                   &  38.77\%                   & 0                \\
     \midrule
         \multirow{6}*{Combined}  
-                 & for example 0.95, L1 1e-6  &                     &                   \\
-                 & ?, ?                   &                     &                   \\
-                 & ?, ?                   &                     &                   \\
-                 & ?, ?                   &                     &                   \\
-                 & ?, ?                   &                     &                   \\
-                 & ?, ?                   &                     &                   \\
+                 & for example 0.95, L1 1e-6  &                     &                     \\
+                 & ?, ?                   &                     &                         \\
+                 & ?, ?                   &                     &                         \\
+                 & ?, ?                   &                     &                         \\
+                 & ?, ?                   &                     &                         \\
+                 & ?, ?                   &                     &                         \\
     \bottomrule
     \end{tabular}
     \caption{Results of all hyperparameter search experiments. \emph{italics} indicate the best results per series and \textbf{bold} indicate the best overall}
