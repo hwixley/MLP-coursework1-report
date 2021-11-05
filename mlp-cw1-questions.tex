@@ -266,7 +266,7 @@ Question Table 3 - Fill in Table 3 with the results from your experiments varyin
         \multirow{3}*{Dropout}
                  & 0.7                   &   81.68\%                   &  \emph{0.030}    \\
                  & 0.9                   &   85.78\%   &  0.095           \\
-                 & 0.95                  &   \emph{\textbf{86.15\%}}                   &  0.142           \\
+                 & 0.95                  &   \emph{86.15\%}                   &  0.142           \\
     \midrule
         \multirow{3}*{L1 penalty}
                  & 1e-4                   &  \emph{84.60}\%                   &  0.078           \\
@@ -279,12 +279,12 @@ Question Table 3 - Fill in Table 3 with the results from your experiments varyin
                  & 1e-1                   &  38.77\%                   & \textbf{\emph{0}}                \\
     \midrule
         \multirow{6}*{Combined}  
-                 & for example 0.95, L1 1e-6  &                     &                     \\
-                 & ?, ?                   &                     &                         \\
-                 & ?, ?                   &                     &                         \\
-                 & ?, ?                   &                     &                         \\
-                 & ?, ?                   &                     &                         \\
-                 & ?, ?                   &                     &                         \\
+                 & 0.95, L1 1e-5  &      86.19\%               &   0.127                  \\
+                 & 0.95, L1 1e-6                    &     86.05\%                &              0.139           \\
+                 & 0.9, L2 1e-4                   &    86.03\%                 &      \emph{0.078}                   \\
+                 & 0.95, L2 1e-4                   &     86.16\%                &      0.120                   \\
+                 & 0.95, L2 1e-5                   &   86.04\%                  &      0.145                   \\
+                 & 0.95, L2 1e-6                   &  \textbf{\emph{ 86.56\%}}                  &      0.142                   \\
     \bottomrule
     \end{tabular}
     \caption{Results of all hyperparameter search experiments. \emph{italics} indicate the best results per series and \textbf{bold} indicate the best overall}
