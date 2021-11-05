@@ -35,8 +35,10 @@
 
 %% Question 3: Summarise what your results show you about the effect of the tested approaches on overfitting and the performance of the trained model
 \newcommand{\questionThree} {
-\youranswer{dropout was the best technique as it produced the best performing model with 84.45\% validation accuracy at a probability of 0.9. Out of the weight penalty techniques L1 regularisation produced the best model with 84.22\% validation accuracy using a coefficient of 1e-4.
-dropout is a very effective technique for mitigating overfitting as it has the effect of making the training process noisy, and ultimately forcing nodes within a layer to probabilistically take on more or less responsibility for the inputs.s, for all combinations of hidden units and layers dropout always improved performance.} 
+\youranswer{%dropout was the best technique as it produced the best performing model with 84.45\% validation accuracy at a probability of 0.9. Out of the weight penalty techniques L1 regularisation produced the best model with 84.22\% validation accuracy using a coefficient of 1e-4.
+dropout is the most effective regularisation technique for mitigating overfitting as it does a bit more than just regularisation and actually adds robustness to the network. This is due to the usage of deactivated neurons (which are ignored in the forward and backward propagations) which effectively compares our network with various different ones. Although, the L1 and L2 regularisation techniques did not produce a validation accuracy as good as that of dropout, they did produce the best generalisation gaps and came very close to the performance produced by dropout
+%as it forces nodes within a layer to probabilistically take on more or less responsibility for the inputs.s, for all combinations of hidden units and layers dropout always improved performance.
+} 
 }
 
 %% Question 4: Give your overall conclusions
