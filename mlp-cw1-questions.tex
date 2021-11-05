@@ -35,7 +35,8 @@
 
 %% Question 3: Summarise what your results show you about the effect of the tested approaches on overfitting and the performance of the trained model
 \newcommand{\questionThree} {
-\youranswer{dropout is a very effective technique for mitigating overfitting as it ensures that every node in the network takes on more responsibility for the inputs, for all combinations of hidden units and layers dropout always improved performance.} 
+\youranswer{dropout was the best technique as it produced the best performing model with 84.45\% validation accuracy at a probability of 0.9. Out of the weight penalty techniques L1 regularisation produced the best model with 84.22\% validation accuracy using a coefficient of 1e-4.
+dropout is a very effective technique for mitigating overfitting as it has the effect of making the training process noisy, and ultimately forcing nodes within a layer to probabilistically take on more or less responsibility for the inputs.s, for all combinations of hidden units and layers dropout always improved performance.} 
 }
 
 %% Question 4: Give your overall conclusions
@@ -261,19 +262,19 @@ Question Table 3 - Fill in Table 3 with the results from your experiments varyin
         Baseline &  -                    &               0.836 &                 0.290 \\
     \midrule
         \multirow{3}*{Dropout}
-                 & 0.7                   &   84.11\%                   &  \emph{0.079}    \\
-                 & 0.9                   &   \textbf{\emph{84.45\%}}   &  0.217           \\
-                 & 0.95                  &   83.99\%                   &  0.315           \\
+                 & 0.7                   &   81.68\%                   &  \emph{0.030}    \\
+                 & 0.9                   &   85.78\%   &  0.095           \\
+                 & 0.95                  &   \emph{\textbf{86.15\%}}                   &  0.142           \\
     \midrule
         \multirow{3}*{L1 penalty}
-                 & 1e-4                   &  84.22\%                   &  0.061           \\
-                 & 1e-3                   &  70.01\%                   &  0.009           \\
-                 & 1e-1                   &  1.98\%                    &  0               \\
+                 & 1e-4                   &  \emph{84.60}\%                   &  0.078           \\
+                 & 1e-3                   &  73.20\%                   &  0.008           \\
+                 & 1e-1                   &  1.98\%                    &  \textbf{\emph{0}}               \\
     \midrule
         \multirow{3}*{L2 penalty}  
-                 & 1e-4                   &  83.46\%                   & 0.242            \\
-                 & 1e-3                   &  83.47\%                   & 0.040            \\
-                 & 1e-1                   &  38.77\%                   & 0                \\
+                 & 1e-4                   &  84.45\%                   & 0.227            \\
+                 & 1e-3                   &  \emph{84.80}\%                   & 0.098            \\
+                 & 1e-1                   &  38.77\%                   & \textbf{\emph{0}}                \\
     \midrule
         \multirow{6}*{Combined}  
                  & for example 0.95, L1 1e-6  &                     &                     \\
