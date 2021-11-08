@@ -108,13 +108,12 @@ It is more computationally effective to widen the layers than increase the numbe
 
 %% Question 13: Explain L1/L2 weight penalties first in words and then with formulas. Explain how they are incorporated to training and what hyperparameter(s) they require
 \newcommand{\questionThirteen} {
-\youranswer{Q13
+\youranswer{
+L1 and L2 weight penalties are regularisation techniques used to prevent overfitting to our training data. These techniques work by adding a regularization term to the error function which acts as a penalty for complex models with large weights. This is so that when we train our model, our error function will gravitate towards a local minimum that does not take "noisy"/insignificant features into account.
 
-L1
-$ ||v||_1 = \sum_{d=1}^{D} |v_d| $
+L1 regularisation is the preferred choice when having a high number of features as it provides sparse solutions.
 
-L2
-$ ||v||_2 = [\sum_{d=1}{D} (v_d^2)]^{\frac{1}{2}} $
+L2 regularisation can deal with multicollinearity (independent variables that are highly correlated) problems through constricting the coefficient and by keeping all the variables. L2 regression can be used to estimate the significance of predictors and based on that   it can penalize the insignificant predictors.
 }
 }
 
