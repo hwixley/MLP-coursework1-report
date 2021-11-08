@@ -66,6 +66,7 @@ dropout is the most effective regularisation technique for mitigating overfittin
 \youranswer{the widest model (128 units) performed the best given it produced the best validation accuracy, however, it was also the most overfitted given it produced the largest generalization gap.
 This seems to be the general trend from these width experiments, that as we increase the width of our model, our validation accuracy and generalization gap both increase. 
 This is evident from figure~\ref{fig:width_acccurves} in which you can see that the validation accuracy of the model with 128 units peaks at epoch 20 and after this it decreases slowly and converges with the validation accuracies of the thinner models. We can see that these thinner models do not overfit as quickly as this one due to their lower complexity, this is evident in the graph as the model with 32 units continues to slowly increase in validation accuracy all the way up to epoch 94 (where it reaches it's maximum validation accuracy).
+The large differences in validation accuracies seen in figure \ref{fig:depth_acccurves} at around epoch 20 are a direct indication of how increasing the width of a model can increase it's performance.
 Given the results from table~\ref{tab:width_exp} alone, if I had to choose one of these models (that was trained for 100 epochs) for implementation I would choose the model with 64 units width. Although it has a slightly worse validation accuracy than that of the 128 unit model it has a far better generalization gap implying it will be a better model for generalizing to new unseen data
 %the width of our model is directly proportional to validation accuracy until a certain epoch at which the model begins to become overfitted (given the validation accuracy starts to decrease and the generalization gap starts to increase). This is evident from figure 2a in which you can see that the validation accuracy of the model with 128 units peaks at epoch 20 and after this it decreases slowly and converges with the validation accuracies of the thinner models. We can see that these thinner models do not overfit as quickly as this one due to their lower complexity, this is evident in the graph as the model with 32 units continues to slowly increase in validation accuracy all the way up to epoch 94 (where it reaches it's maximum validation accuracy). From table 1 we can see that the model with 128 units is overfitted due it's near identical validation accuracy with the 64 unit model yet far larger generalization gap
 }
@@ -97,7 +98,9 @@ These results were to be expected as the deeper the model implies more informati
 %% Question 12: Compare and discuss how varying width and height changes the performance and overfitting in your experiments
 \newcommand{\questionTwelve} {
 \youranswer{
-From figure~\ref{fig:width} and figure~\ref{fig:depth} we can see that increasing depth is a more effective means to increase validation accuracy. 
+From table~\ref{tab:width_exp} and table~\ref{tab:depth_exps} we can see that increasing depth is a more effective means to increase performance as it achieves better validation accuracy across all models (when looking at the optimal validation accuracy across 100 epochs), we can also see that increasing width makes the model less susceptible to overfitting given the far smaller generalization gaps achieved across all models.
+
+When looking at figure \ref{fig:width_acccurves} and figure \ref{fig:depth_acccurves} we can see that there is a far larger gap in accuracies between the models of varying width which indicates the rapid improvement increasing width can have on a model's performance.
 
 It is more computationally effective to widen the layers than increase the number of layers as wider networks allow many multiplications to be completed in parallel, unlike deeper networks which require more sequential operations (since the computations depend on the outputs of the previous layer(s)) \cite{DBLP:journals/corr/ZagoruykoK16}.
 }
@@ -105,7 +108,14 @@ It is more computationally effective to widen the layers than increase the numbe
 
 %% Question 13: Explain L1/L2 weight penalties first in words and then with formulas. Explain how they are incorporated to training and what hyperparameter(s) they require
 \newcommand{\questionThirteen} {
-\youranswer{Q13}
+\youranswer{Q13
+
+L1
+$ ||v||_1 = \sum_{d=1}^{D} |v_d| $
+
+L2
+$ ||v||_2 = [\sum_{d=1}{D} (v_d^2)]^{\frac{1}{2}} $
+}
 }
 
 %% Question 14: Discuss how/why the weight penalties may address overfitting, discuss how L1 and L2 regularization differ and support your claims with references where possible
