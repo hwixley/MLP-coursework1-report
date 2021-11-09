@@ -121,24 +121,27 @@ Finally, when analysing these two methods for developing neural networks we must
 \youranswer{
 These techniques work by adding a regularization term to the error function which acts as a penalty for complex models with large weights. This is so that when we train our model using gradient descent, our error function will gravitate towards a local minimum that does not take "noisy"/insignificant features into account. The mathematical formula for the error function without regularization is as follows:
 $$ E^n = E^{n}_{train}$$
+\\
+\\
 We incorporate L1 regularisation into training our model  by adding a regularisation term to this error function that penalizes large weights: 
 %L1 regularisation is the preferred choice when having a high number of features as it provides sparse solutions. In L1 the weights shrink to 0 at a constant rate ($\beta \text{sgn}(w_i)$), thus the new mathematical formula for the loss function with L1 regularization is as follows:
 $$ E^n = E^{n}_{train} + \beta \sum_{i=1}^{n}|w_i|$$
-$$ \text{where } \beta \text{ is the regularization parameter.}$$
+$$ \text{where } \beta \text{ is the regularization parameter}$$
 
-And now we can try to reach the \emph{new} local/global minimum of our error function by using the following equation:
+And now we can try to reach the \emph{new} local/global minimum of our L1 error function by using the following equation:
 
 $$ \frac{\partial E^n}{\partial w_i} = \frac{\partial E_{train}^{n}}{\partial w_i} + \beta \text{sgn}(w_i)$$
 $$\text{where } \text{sgn}(w_i) \text{ is the sign of }w_i$$ 
-
-This added regularisation term evidently 
-
-L2 regularisation can deal with multicollinearity (independent variables that are highly correlated) problems through constricting the coefficient and by keeping all the variables. L2 regression can be used to estimate the significance of predictors and based on that it can penalize the insignificant predictors. In L2 weights shrink to 0 at a rate proportional to the size of the weight ($ \beta w_i$), thus the new mathematical formula for the loss function with L2 regression is as follows:
+\\
+\\
+%This added regularisation term evidently indicates that L1 regularisation penalizes the weights of a model by calculating the sum of the absolute value of the weights 
+%L2 regularisation can deal with multicollinearity (independent variables that are highly correlated) problems through constricting the coefficient and by keeping all the variables. L2 regression can be used to estimate the significance of predictors and based on that it can penalize the insignificant predictors. In L2 weights shrink to 0 at a rate proportional to the size of the weight ($ \beta w_i$), 
+We incorporate L2 regularisation into training our model  by adding a regularisation term to this error function that penalizes large weights: 
 $$ E^n = E^{n}_{train} + \beta \sum_{i=1}^{n}w_i^2 $$
-$$ \text{such that} $$
+$$ \text{where } \beta \text{ is the regularization parameter} $$
 
+And now we can try to reach the \emph{new} local/global minimum of our L2 error function by using the following equation:
 $$ \frac{\partial E^n}{\partial w_i} = \frac{\partial E_{train}^{n}}{\partial w_i} + \beta w_i$$
-Where $ \beta$ is the regularization parameter.
 \\
 
 This regularization parameter $\beta$ is evidently extremely important to both these regularization techniques as it directly affects the complexity and training-data fit of the model. Given this parameter is handpicked it is extremely important that it is set optimally. The choice of this parameter is entirely dependent on how far we want to simplify our model (as increasing it's magnitude strengthens this regularization effect) so we must keep the initial performance and fitting of our model in mind when choosing this. A good method to choose this parameter would be to test varying size $ \beta$ values on the validation set and choose the one that produces the best validation accuracy
