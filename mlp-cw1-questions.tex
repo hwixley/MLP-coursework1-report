@@ -164,22 +164,33 @@ These regularisation techniques address overfitting by penalising large weights 
 %% Question 16: Explain the motivation behind Maxout Networks as presented in \cite{goodfellow2013maxout}
 \newcommand{\questionSixteen} {
 \youranswer{
-maxout networks have beneficial characteristics for both optimization and model averaging with dropout.
+maxout networks are designed to both facilitate optimisation by dropout and improve the accuracy of dropout's fast approximate model averaging technique.
 The maxout network is a feed-forward architecture that uses a new type of activation function called the maxout unit. Given an input a maxout hidden layer implements the following function:
 $$ h_i(x) = \max_{j \in [1,k]} z_{ij} $$
-$$\text{where } z_{ij}=x^T W_{...ij} + b_{ij} \text{, and } W \in \mathbb{R}^{d \times m \times k}$$
+$$\text{where } z_{ij}=x^T W_{...ij} + b_{ij} \text{ , and } W \in \mathbb{R}^{d \times m \times k} \text{ and } b \in \mathbb{R}^{m \times k}$$
+$$\text{ are learned parameters}$$
+
+A single maxout unit can be interpreted as making a piecewise linear approximation to an arbitrary convex function. Maxout networks learn not just the relationship between hidden units, but also the activation function of each hidden unit. A multilayer perceptron containing 2 maxout units can be used to arbitrarily approximate any function
 }
 }
 
 %% Question 17: State whether Dropout is compatible (can be used together) with Maxout and explain why
 \newcommand{\questionSeventeen} {
-\youranswer{Q17
+\youranswer{
+Yes Dropout is compatible with Maxout as the founding paper on Maxout networks \cite{goodfellow2013maxout} used Maxout in conjunction with Dropout to test on benchmark datasets
 }
 }
 
 %% Question 18: Give an overview of the experiment setup in \cite{goodfellow2013maxout} and analyse it from the point of view of how convincing their conclusions are 
 \newcommand{\questionEighteen} {
-\youranswer{Q18
+\youranswer{
+The setup was good as they decided to test their novel method on benchmark datasets.
+
+However, I believe they should have provided error scores for models fitted with Dropout alone, and with Maxout alone. As althought they said it was "particularly well suited for training with dropout" it is still useful to be able to compare these metrics.
+
+In the conclusion it was stated that Maxout exploits model averaging behaviour because the approximation is more accurate for Maxout units than for tanh units. However, there are many other units than tanh units that this method could have been compared against.
+
+They decided to make a proof that proves Maxout is a universal approximator, this is a good method as it ensures conservation of logic.
 }
 }
 
