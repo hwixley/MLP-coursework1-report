@@ -157,12 +157,17 @@ These regularisation techniques address overfitting by penalising large weights 
 
 %% Question 15: Explain the experimental details (e.g. hyperparameters), discuss the results in terms of their generalization performance and overfitting
 \newcommand{\questionFifteen} {
-\youranswer{Q15}
+\youranswer{Q15
+}
 }
 
 %% Question 16: Explain the motivation behind Maxout Networks as presented in \cite{goodfellow2013maxout}
 \newcommand{\questionSixteen} {
-\youranswer{Q16
+\youranswer{
+maxout networks have beneficial characteristics for both optimization and model averaging with dropout.
+The maxout network is a feed-forward architecture that uses a new type of activation function called the maxout unit. Given an input a maxout hidden layer implements the following function:
+$$ h_i(x) = \max_{j \in [1,k]} z_{ij} $$
+$$\text{where } z_{ij}=x^T W_{...ij} + b_{ij} \text{, and } W \in \R^{d \times m \times k}$$
 }
 }
 
