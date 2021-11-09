@@ -53,7 +53,7 @@ dropout is the most effective regularisation technique for mitigating overfittin
 
 %% Question 6: Discuss ``why'' and ``how'' overfitting occurs, and ``how'' one can identify it is happening
 \newcommand{\questionSix} {
-\youranswer{Overfitting occurs due to the mathematical techniques we use to train and optimise our model. In order to optimise our model we define an error function that represents how far our model's predictions are away from the real labels, thus to create a model with perfect accuracy we want a model that produces zero error. So in order to produce a model that minimizes error, we can use calculus to try find a local/global minimum on this error function. However, the problem here is that this error function is defined by the training data which inevitably stores some "noise" due to various reasons (human error, data collection error, floating point round-off errors)
+\youranswer{Overfitting occurs due to the mathematical techniques we use to train and optimise our model. In order to optimise our model we define an error function that represents how far our model's predictions are away from the real labels, thus to create a model with perfect accuracy we want a model that produces 0 error. So in order to produce a model that minimizes error, we can use calculus to try find a local/global minimum on this error function. However, the problem here is that this error function is defined by the training data which inevitably stores some "noise" due to various reasons (human error, data collection error, floating point round-off errors), and so as we begin to become close to 0 error we start to fit this "noise" into our model 
 }
 }
 
