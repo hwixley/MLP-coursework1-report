@@ -112,23 +112,24 @@ These results were to be expected as the deeper the model implies more informati
 \newcommand{\questionTwelve} {
 \youranswer{
 From table~\ref{tab:width_exp} and table~\ref{tab:depth_exps} we can see that increasing depth is a more effective means to increase performance as it achieves better validation accuracy across all models (when looking at the optimal validation accuracy across 100 epochs). We can also see from these tables that increasing width makes the model less susceptible to overfitting than increasing the depth given the far smaller generalization gaps achieved across all the width experiment models. When looking at figure \ref{fig:width_acccurves} and figure \ref{fig:depth_acccurves} we can see that there is a far larger gap in accuracies between the models of varying width which indicates the rapid improvement increasing width can have on a model's performance. 
-Finally, when analysing these two methods for developing neural networks we must also keep in mind the computational costs of each of these, as different applications may demand different amounts of computational efficiency. In a time-critical application (where computation speed needs to be minimised as much as possible) it is more computationally effective to widen the layers than increase the number of layers as wider networks allow many multiplications to be completed in parallel, unlike deeper networks which require more sequential operations (since the computations depend on the outputs of the previous layers) \cite{DBLP:journals/corr/ZagoruykoK16}
+Finally, when analysing these two methods for developing neural networks we must also keep in mind the computational costs of each of these, as different applications may demand different amounts of computational efficiency. In a time-critical application (where computation speed needs to be minimised as much as possible) it is more computationally effective to widen the network than increase the depth of the network as wider networks allow many multiplications to be completed in parallel, unlike deeper networks which require more sequential operations (since the computations depend on the outputs of the previous layers) \cite{DBLP:journals/corr/ZagoruykoK16}
 }
 }
 
 %% Question 13: Explain L1/L2 weight penalties first in words and then with formulas. Explain how they are incorporated to training and what hyperparameter(s) they require
 \newcommand{\questionThirteen} {
 \youranswer{
-L1 and L2 weight penalties are regularisation techniques used to prevent overfitting to our training data. These techniques work by adding a regularization term to the error function which acts as a penalty for complex models with large weights. This is so that when we train our model, our error function will gravitate towards a local minimum that does not take "noisy"/insignificant features into account. The mathematical formula for the loss function without regularization is as follows:
+These techniques work by adding a regularization term to the error function which acts as a penalty for complex models with large weights. This is so that when we train our model using gradient descent, our error function will gravitate towards a local minimum that does not take "noisy"/insignificant features into account. The mathematical formula for the loss function without regularization is as follows:
 $$ E^n = E^{n}_{train}$$
-
-L1 regularisation is the preferred choice when having a high number of features as it provides sparse solutions. In L1 the weights shrink to 0 at a constant rate ($\beta \text{sgn}(w_i)$), thus the new mathematical formula for the loss function with L1 regularization is as follows:
+Now when we incorporate L1 regularisation into training our model we add a regularisation term to this error function: 
+%L1 regularisation is the preferred choice when having a high number of features as it provides sparse solutions. In L1 the weights shrink to 0 at a constant rate ($\beta \text{sgn}(w_i)$), thus the new mathematical formula for the loss function with L1 regularization is as follows:
 $$ E^n = E^{n}_{train} + \beta \sum_{i=1}^{n}|w_i|$$
 $$ \text{such that}$$
 
 $$ \frac{\partial E^n}{\partial w_i} = \frac{\partial E_{train}^{n}}{\partial w_i} + \beta \text{sgn}(w_i)$$
 Where $ \beta$ is the regularization parameter and $ \text{sgn}(w_i)$ is the sign of $w_i$. 
 \\
+This ne
 
 L2 regularisation can deal with multicollinearity (independent variables that are highly correlated) problems through constricting the coefficient and by keeping all the variables. L2 regression can be used to estimate the significance of predictors and based on that it can penalize the insignificant predictors. In L2 weights shrink to 0 at a rate proportional to the size of the weight ($ \beta w_i$), thus the new mathematical formula for the loss function with L2 regression is as follows:
 $$ E^n = E^{n}_{train} + \beta \sum_{i=1}^{n}w_i^2 $$
