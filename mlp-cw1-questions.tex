@@ -60,7 +60,8 @@ dropout is the most effective regularisation technique for mitigating overfittin
 %% Question 7: Explain what these figures contain and how the curves evolve, and spot where overfitting occurs. Reason based on the min/max points and velocities (direction and magnitude of change) of the accuracy and error curves
 \newcommand{\questionSeven} {
 \youranswer{
-the training and validation accuracies both improve logarithmically with the number of epochs, however, when the validation accuracy reaches epoch 17 it begins to decrease linearly with the number of epochs after this. This trend indicates overfitting as after epoch 17 the validation accuracy starts to decrease and generalisation gap starts to increase as the number of epochs increase.
+the training and validation accuracies both improve logarithmically with the number of epochs, however, after epoch 17 we can see that the validation accuracy begins to decrease linearly with the number of epochs. This indicates that this model is starting to overfit to the "noise" in the training set after epoch 17 as the validation accuracy starts to decrease and generalisation gap starts to increase with the number of epochs.
+This is further supported by figure~\ref{fig:example_errorcurves} which shows the validation and training errors as we increase the number of epochs. We can see that after epoch 17 the validation error starts to slowly increase in a linear fashion and the generalisation gap ($E_{train} - E_{valid}$) starts to increase exponentially (due to the fact that the training error continues to decrease linearly and the validation error continues to increase linearly).
 %, thus if we were given this figure when choosing the optimal model we would choose the model at epoch 17 as this gives the best validation set performance. We see that figure 1b appears like figure 1a flipped upside down, this is to be expected given these graphs are reporting the opposite metrics.
 }
 }
