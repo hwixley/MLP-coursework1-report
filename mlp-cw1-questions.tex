@@ -109,11 +109,23 @@ It is more computationally effective to widen the layers than increase the numbe
 %% Question 13: Explain L1/L2 weight penalties first in words and then with formulas. Explain how they are incorporated to training and what hyperparameter(s) they require
 \newcommand{\questionThirteen} {
 \youranswer{
-L1 and L2 weight penalties are regularisation techniques used to prevent overfitting to our training data. These techniques work by adding a regularization term to the error function which acts as a penalty for complex models with large weights. This is so that when we train our model, our error function will gravitate towards a local minimum that does not take "noisy"/insignificant features into account.
+L1 and L2 weight penalties are regularisation techniques used to prevent overfitting to our training data. These techniques work by adding a regularization term to the error function which acts as a penalty for complex models with large weights. This is so that when we train our model, our error function will gravitate towards a local minimum that does not take "noisy"/insignificant features into account. The mathematical formula for the loss function without regularization is as follows:
+$$ E^n = E^{n}_{train}$$
 
-L1 regularisation is the preferred choice when having a high number of features as it provides sparse solutions.
+L1 regularisation is the preferred choice when having a high number of features as it provides sparse solutions. In L1 the weights shrink to 0 at a constant rate ($\beta \text{sgn}(w_i)$). Thus the new mathematical formula for the loss function with L1 regularization is as follows:
+$$ E^n = E^{n}_{train} + \beta \sum_{i=1}^{n}|w_i|$$
+$$ \text{such that}$$
 
-L2 regularisation can deal with multicollinearity (independent variables that are highly correlated) problems through constricting the coefficient and by keeping all the variables. L2 regression can be used to estimate the significance of predictors and based on that   it can penalize the insignificant predictors.
+$$ \frac{\partial E^n}{\partial w_i} = \frac{\partial E_{train}^{n}}{\partial w_i} + \beta \text{sgn}(w_i)$$
+Where $ \beta$ is the regularization parameter and $ \text{sgn}(w_i)$ is the sign of $w_i$. 
+\\
+
+L2 regularisation can deal with multicollinearity (independent variables that are highly correlated) problems through constricting the coefficient and by keeping all the variables. L2 regression can be used to estimate the significance of predictors and based on that it can penalize the insignificant predictors. In L2 weights shrink to 0 at a rate proportional to the size of the weight ($ \beta w_i$). Thus the new mathematical formula for the loss function with L2 regression is as follows:
+$$ E^n = E^{n}_{train} + \beta \sum_{i=1}^{n}w_i^2 $$
+$$ \text{such that} $$
+
+$$ \frac{\partial E^n}{\partial w_i} = \frac{\partial E_{train}^{n}}{\partial w_i} + \beta w_i$$
+Where $ \beta$ is the regularization parameter. 
 }
 }
 
