@@ -136,6 +136,8 @@ This regularization parameter $\beta$ is evidently extremely important to both t
 \newcommand{\questionFourteen} {
 \youranswer{
 Weight penalties address overfitting by penalising large weights in models, penalising these large weights helps to reduce the complexity of the model and ultimately retain less noise from the training set.
+
+L1 and L2 regularisation differ in the regularisation terms they add to the error function. In L1 regression weights shrink to 0 at a constant rate in contrast to L2 regression where weights shrink to 0 at a rate proportional to the magnitude of the weight. The differences in these regularization terms imply that these techniques can be used in different contexts. L1 regularisation is particularly useful for feature selection as we can drop features with coefficients that go to zero. L2 regularisation on the other hand is useful when you have collinear/codependent features as codependence tends to increase coefficient variance, making coefficients unreliable/unstable which ends up hurting the model's generality. L2 fixes this by reducing the variance of these estimates which counteracts the effect of codependencies. 
 }
 }
 
