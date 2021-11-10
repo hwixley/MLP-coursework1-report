@@ -164,6 +164,7 @@ These regularisation techniques address overfitting by penalising large weights 
 %% Question 16: Explain the motivation behind Maxout Networks as presented in \cite{goodfellow2013maxout}
 \newcommand{\questionSixteen} {
 \youranswer{
+it has not previously been demonstrated to actually perform model averaging for deep architectures. Dropout is generally seen as an indiscriminately applicable tool that
 maxout networks are designed to both facilitate optimisation by dropout and improve the accuracy of dropout's fast approximate model averaging technique.
 The maxout network is a feed-forward architecture that uses a new type of activation function called the maxout unit. Given an input a maxout hidden layer implements the following function:
 $$ h_i(x) = \max_{j \in [1,k]} z_{ij} $$
@@ -268,7 +269,7 @@ They decided to make a proof that proves Maxout is a universal approximator, thi
     \end{subfigure} 
     \begin{subfigure}{.3\linewidth}
         \centering
-        \includegraphics[width=1\linewidth]{figures/combined-val-acc-gen-gap-wmeans.pdf}
+        \includegraphics[width=1\linewidth]{figures/combined-val-acc-gen-gap-bar.pdf}
         \caption{Metrics by combining inclusion rate and weight penalty}
         \label{fig:extra}
     \end{subfigure} 
