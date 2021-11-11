@@ -238,7 +238,7 @@ To optimise this Dropout model even further we could optimise the number of Drop
 
 To optimise the L1 and L2 regularization models even further we could optimise the regularisation parameter for the weights and bias separately.
 
-To optimise the random seed
+To optimise the random seed we would just iterate through various random seeds to find which produces the optimal start point for the weights and Dropout layers. This optimisation is particularly important in the context of gradient descent due to the fact we want to find the global minimum of the error function. This is due to the fact that performing gradient descent will always bring us to a local minimum but not necessarily a global minimum as it finds the minimum closest to the initialised weights, and cannot tell which minimum is local and which is global. Thus finding this global minimum is fully dependent on the random seed as this seed denotes which minimum our model starts closest to.
 
 Thus to optimise our combination experiments in the future we could use the new results from our experiments described above as a way to structure our neural network architecture optimally. I would also like to test 
 }
