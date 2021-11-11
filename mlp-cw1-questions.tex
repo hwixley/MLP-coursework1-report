@@ -159,9 +159,9 @@ These regularisation techniques address overfitting by penalising large weights 
 \newcommand{\questionFifteen} {
 \youranswer{
 %WORKKK
-From our Dropout experiments it is evident to see that validation accuracy and generalisation gap are both directly proportional to the Dropout probability when $0.7 <= p <= 0.95$ (where $p$ is the Dropout probability). This was achieved by applying a Dropout layer before each Affine layer in our network, using the same Dropout probability for each Dropout layer. 
+From our Dropout experiments it is evident to see that validation accuracy and generalisation gap are both directly proportional to the Dropout probability when $0.7 <= p <= 0.95$ (where $p$ is the Dropout probability). This was achieved by applying a Dropout layer before each Affine layer in our network (resulting in 4 Dropout layers), and using the same Dropout probability for each Dropout layer. However, these results do not cover any cases where the dropout probability is less than 0.7, this is problematic as we cannot extrapolate the trend found from our 3 experiments to learn about the performance for Dropout layers with probability less than 0.7
 
-However, these results do not cover any cases where the dropout probability is less than 0.5, this is problematic as we cannot extrapolate these results from our 3 experiments, rather we need to test them.
+From our L1/L2 regularisation experiments 
 
 For my combined regularisation method experiments I carefully chose what hyperparameters to use. From the Dropout experiments it was evident that setting the Dropout probability to 0.95 was the optimal choice since it gave the highest validation accuracy of 86.15\%. Thus for all my combination experiments I decided to keep the Dropout probability fixed at 0.95 to maximise validation accuracy. Now the only hyperparameter left to choose were the weight penalty techniques and their coefficients.
 
