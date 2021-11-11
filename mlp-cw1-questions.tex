@@ -206,12 +206,13 @@ They decided to make a proof that proves Maxout is a universal approximator, thi
 \newcommand{\questionNineteen} {
 \youranswer{Q19
 
-In the future, to optimise these models even further there are a number of things we could do. Such as optimise the depth and width of our model even further, choose the optimal activation function, optimise the structure of the Dropout layers in our architecture, optimise the L1/L2 regularization parameters even further, and optimise the random seed used to initialize our weights, and Dropout layers. 
+In the future, to optimise these models even further there are a number of things we could do: optimise the depth and width of our model even further, choose the optimal activation function, optimise the structure of the Dropout layers in our architecture, optimise the L1/L2 regularization parameters even further, and optimise the random seed used to initialize our weights, and Dropout layers. 
 
+To optimise the shape (width and depth) of our model I would mainly focus on increasing the width as our experiments from figure~\ref{fig:depth} indicate that increasing the depth has minimal performance returns after layer 2, given the model with 3 layers achieved an optimal validation accuracy of 84.41\% (a 0.01\% performance decrease from the 2 layer model). In contrast, we can see in figure~\ref{fig:width} that the performance returns for increasing the width are much greater (as illustrated by the difference between the optimal validation accuracies achieved by each width model), given the model with 128 units achieved an optimal validation accuracy of 83.48\% (a 1.47\% performance increase from the 64 unit model). However, we must note that this performance increase was due to an exponential increase in the number of hidden units ($2^6 -> 2^7$) and thus any further significant increases in performance may require another exponential increase in the number of hidden units and thus an exponential increase in computation.
 
-Firstly, to optimise this Dropout model even further we could optimise the number of Dropout layers used, their placement within the network (before which Affine layers), and the Dropout probabilities used for each of these layers.
+To optimise this Dropout model even further we could optimise the number of Dropout layers used, their placement within the network (before which Affine layers), and the Dropout probabilities used for each of these layers.
 
-Secondly, to optimise the L1 and L2 regularization models even further we could optimise the regularisation parameter for the weights and bias separately.
+To optimise the L1 and L2 regularization models even further we could optimise the regularisation parameter for the weights and bias separately.
 
 Thus to optimise our combination experiments in the future we could use the new results from our experiments described above as a way to structure our neural network architecture optimally. I would also like to test 
 }
