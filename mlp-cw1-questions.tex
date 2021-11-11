@@ -205,8 +205,12 @@ They decided to make a proof that proves Maxout is a universal approximator, thi
 %% Question 19: Briefly draw your conclusions based on the results from the previous sections (what are the take-away messages?) and conclude your report with a recommendation for future directions
 \newcommand{\questionNineteen} {
 \youranswer{Q19
+From these results it is evident that 
 
-In the future, to optimise these models even further there are a number of things we could do: optimise the depth and width of our model even further, choose the optimal activation function, optimise the structure of the Dropout layers in our architecture, optimise the L1/L2 regularization parameters even further, and optimise the random seed used to initialize our weights, and Dropout layers. 
+
+In the future, to make our models perform even better there are a number of things we could still optimise further: the number of epochs used, the batch size, the depth and width of our model, the type of activation function used, the structure of the Dropout layers in our architecture, the L1/L2 regularization parameters, and the random seed used to initialize our weights and Dropout layers.
+
+The first step I would take towards optimising my models would be through optimising the batch size. Throughout all our experiments we set the batch size
 
 To optimise the shape (width and depth) of our model I would mainly focus on increasing the width as our experiments from figure~\ref{fig:depth} indicate that increasing the depth has minimal performance returns after layer 2, given the model with 3 layers achieved an optimal validation accuracy of 84.41\% (a 0.01\% performance decrease from the 2 layer model). In contrast, we can see in figure~\ref{fig:width} that the performance returns for increasing the width are much greater (as illustrated by the difference between the optimal validation accuracies achieved by each width model), given the model with 128 units achieved an optimal validation accuracy of 83.48\% (a 1.47\% performance increase from the 64 unit model). However, we must note that this performance increase was due to an exponential increase in the number of hidden units ($2^6 -> 2^7$) and thus any further significant increases in performance may require another exponential increase in the number of hidden units and thus an exponential increase in computation.
 
