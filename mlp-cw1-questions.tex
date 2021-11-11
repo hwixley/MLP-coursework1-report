@@ -222,7 +222,7 @@ They decided to make a proof that proves Maxout is a universal approximator, thi
 \youranswer{
 %WORKKK
 From these results it is evident that for the EMNIST dataset the Dropout, L1 regularisation, and L2 regularisation techniques are all very useful for mitigating overfitting. From figure~\ref{fig:dropoutrates} we can see that for $0.7 <= p <= 0.95$ (where $p$ is the Dropout probability) that $p$ is directly proportional to validation accuracy and generalisation gap, and is optimal at a value of 0.95. From figure~\ref{fig:weightrates} we can see that for $1e-1 <= \beta <= 1e-4$ (where $\beta$ is the regularisation parameter) that $\beta$ is inversely proportional to generalisation gap and validation accuracy, 
-
+From figure~\ref{fig:extra} we can see that for $p = 0.95$ and $1e-6 <= \beta <= 1e-4$: L2 regularisation is the better weight penalty technique given it produces the best validation accuracies across all values of $\beta$, $\beta = 1e-5$ is the optimal parameter setting in this context for both L1 and L2 regularisation, and thus the parameters for the best performing model was $\beta = 1e-5$ for L2 regularisation and $p = 0.95$ for Dropout.
 
 In the future, to make our models perform even better there are a number of things we could still optimise further: the number of epochs used, the batch size, the depth and width of our model, the type of activation function used, the structure of the Dropout layers in our architecture, the L1/L2 regularization parameters, and the random seed used to initialize our weights and Dropout layers.
 
