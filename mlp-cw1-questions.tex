@@ -159,9 +159,9 @@ These regularisation techniques address overfitting by penalising large weights 
 \newcommand{\questionFifteen} {
 \youranswer{
 %WORKKK
-From our Dropout experiments it is evident to see that validation accuracy and generalisation gap are both directly proportional to the Dropout probability when $0.7 <= p <= 0.95$ (where $p$ is the Dropout probability). This was achieved by applying a Dropout layer before each Affine layer in our network (resulting in 4 Dropout layers), and using the same Dropout probability for each Dropout layer. However, these results do not cover any cases where the dropout probability is less than 0.7, this is problematic as we cannot extrapolate the trend found from our 3 experiments to learn about the performance for Dropout layers with probability less than 0.7
+From our Dropout experiments it is evident to see that validation accuracy and generalisation gap are both directly proportional to the Dropout probability when $0.7 <= p <= 0.95$ (where $p$ is the Dropout probability). This was achieved by applying a Dropout layer before each Affine layer in our network (resulting in 4 Dropout layers), and using the same Dropout probability for each Dropout layer. These results were to be expected given that the higher the Dropout probability implies less nodes to drop and thus more information is retained in the network meaning higher validation accuracy, but since we are retaining more information this also makes our model more susceptible to overfitting thus widening the generalisation gap. However, these results do not cover any cases where $0.5 <= p < 0.7$, this is problematic as we cannot extrapolate the trend found from our 3 experiments to learn about the performance for Dropout layers with $0.5 <= p < 0.7$. Such results would have been useful to get a better insight when choosing the Dropout probability for our combination experiments.
 
-From our L1/L2 regularisation experiments 
+From our L1/L2 regularisation experiments it is evident that L1 regularisation is less susceptible to overfitting than L2 regularisation based on the far lower generalization gaps this method achieved. 
 
 For my combined regularisation method experiments I carefully chose what hyperparameters to use. From the Dropout experiments it was evident that setting the Dropout probability to 0.95 was the optimal choice since it gave the highest validation accuracy of 86.15\%. Thus for all my combination experiments I decided to keep the Dropout probability fixed at 0.95 to maximise validation accuracy. Now the only hyperparameter left to choose were the weight penalty techniques and their coefficients.
 
@@ -279,7 +279,8 @@ Thus to optimise our combination experiments in the future we could use the new 
 
 %% Question Figure 4:
 \newcommand{\questionFigureFour} {
-\youranswer{Question Figure 4 - Replace these images with figures depicting the Validation Accuracy and Generalisation Gap for each of your experiments varying the Dropout inclusion rate, L1/L2 weight penalty, and for the 8 combined experiments (you will have to find a way to best display this information in one subfigure).
+\youranswer{
+%Question Figure 4 - Replace these images with figures depicting the Validation Accuracy and Generalisation Gap for each of your experiments varying the Dropout inclusion rate, L1/L2 weight penalty, and for the 8 combined experiments (you will have to find a way to best display this information in one subfigure).
 %
 \begin{figure*}[t]
     \centering
@@ -355,7 +356,7 @@ Thus to optimise our combination experiments in the future we could use the new 
 %% Question Table 3:
 \newcommand{\questionTableThree} {
 \youranswer{
-Question Table 3 - Fill in Table 3 with the results from your experiments varying the hyperparameter values for each of L1 regularisation, L2 regularisation, and Dropout (use the values shown on the table) as well as the results for your experiments combining L1/L2 and Dropout (you will have to pick what combinations of hyperparameter values to test for the combined experiments; each of the combined experiments will need to use Dropout and either L1 or L2 regularisation; run an experiment for each of 8 different combinations). Use \textit{italics} to print the best result per criterion for each set of experiments, and \textbf{bold} for the overall best result per criterion.
+%Question Table 3 - Fill in Table 3 with the results from your experiments varying the hyperparameter values for each of L1 regularisation, L2 regularisation, and Dropout (use the values shown on the table) as well as the results for your experiments combining L1/L2 and Dropout (you will have to pick what combinations of hyperparameter values to test for the combined experiments; each of the combined experiments will need to use Dropout and either L1 or L2 regularisation; run an experiment for each of 8 different combinations). Use \textit{italics} to print the best result per criterion for each set of experiments, and \textbf{bold} for the overall best result per criterion.
 %
 \begin{table*}[t]
     \centering
