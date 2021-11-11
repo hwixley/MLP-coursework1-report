@@ -144,7 +144,7 @@ And now we can try to reach the \emph{new} local/global minimum of our L2 error 
 $$ \frac{\partial E^n}{\partial w_i} = \frac{\partial E_{train}^{n}}{\partial w_i} + \beta w_i$$
 \\
 
-This regularization parameter $\beta$ is evidently extremely important to both these regularization techniques as it directly affects the complexity and training-data fit of the model. Given this parameter is handpicked it is extremely important that it is set optimally. The choice of this parameter is entirely dependent on how far we want to simplify our model (as increasing it's magnitude strengthens this regularization effect) so we must keep the initial performance and fitting of our model in mind when choosing this. A good method to choose this parameter would be to test varying size $ \beta$ values on the validation set and choose the one that produces the best validation accuracy
+This regularization parameter $\beta$ is evidently extremely important to both these regularization techniques as it directly affects the complexity and training-data fit of the model. Given this parameter is handpicked it is extremely important that it is set optimally. The choice of this parameter is entirely dependent on how far we want to simplify our model (as increasing it's magnitude strengthens this regularization effect) so we must keep the initial performance and fitting of our model in mind when choosing this. As shown in table~\ref{tab:hp_search} a good method to choose this parameter would be to test varying size $ \beta$ values on the validation set and choose the one that produces the best validation accuracy
 }
 }
 
@@ -157,7 +157,14 @@ These regularisation techniques address overfitting by penalising large weights 
 
 %% Question 15: Explain the experimental details (e.g. hyperparameters), discuss the results in terms of their generalization performance and overfitting
 \newcommand{\questionFifteen} {
-\youranswer{Q15
+\youranswer{
+From our Dropout experiments it is evident to see that validation accuracy and generalisation gap are both directly proportional to the Dropout probability when $0.7 <= p <= 0.95$ (where $p$ is the Dropout probability). This was achieved by applying a Dropout layer before each Affine layer in our network, using the same Dropout probability for each Dropout layer. 
+
+However, these results do not cover any cases where the dropout probability is less than 0.5, this is problematic as we cannot extrapolate these results from our 3 experiments, rather we need to test them.
+
+For my combined regularisation method experiments I carefully chose what hyperparameters to use. From the Dropout experiments it was evident that setting the Dropout probability to 0.95 was the optimal choice since it gave the highest validation accuracy of 86.15\%. Thus for all my combination experiments I decided to keep the Dropout probability fixed at 0.95 to maximise validation accuracy. Now the only hyperparameter left to choose were the weight penalty techniques and their coefficients.
+
+For my combined I varied the dropout probabilities across the different layers to maximise validation accuracy
 }
 }
 
@@ -178,7 +185,7 @@ A single maxout unit can be interpreted as making a piecewise linear approximati
 %% Question 17: State whether Dropout is compatible (can be used together) with Maxout and explain why
 \newcommand{\questionSeventeen} {
 \youranswer{
-Yes Dropout is compatible with Maxout as the founding paper on Maxout networks \cite{goodfellow2013maxout} used Maxout in conjunction with Dropout to test on benchmark datasets. This is evident given Maxout was developed as a method to enhance dropout's abilities as a model averaging technique
+We know that Dropout is compatible with Maxout given Maxout was developed as a method to enhance Dropout's abilities as a model averaging technique. This is further supported by the founding paper on Maxout networks \cite{goodfellow2013maxout} which actually used Maxout in conjunction with Dropout to test Maxout's performance on benchmark datasets
 }
 }
 
@@ -198,6 +205,11 @@ They decided to make a proof that proves Maxout is a universal approximator, thi
 %% Question 19: Briefly draw your conclusions based on the results from the previous sections (what are the take-away messages?) and conclude your report with a recommendation for future directions
 \newcommand{\questionNineteen} {
 \youranswer{Q19
+
+FUTURE
+To optimise this Dropout model even further in the future we could optimise the number of Dropout layers used, their placement within the network (before which Affine layers), and the Dropout probabilities used for each of these layers.
+
+To optimise the L1 and L2 regularization models even further 
 }
 }
 
