@@ -158,6 +158,7 @@ These regularisation techniques address overfitting by penalising large weights 
 %% Question 15: Explain the experimental details (e.g. hyperparameters), discuss the results in terms of their generalization performance and overfitting
 \newcommand{\questionFifteen} {
 \youranswer{
+%WORKKK
 From our Dropout experiments it is evident to see that validation accuracy and generalisation gap are both directly proportional to the Dropout probability when $0.7 <= p <= 0.95$ (where $p$ is the Dropout probability). This was achieved by applying a Dropout layer before each Affine layer in our network, using the same Dropout probability for each Dropout layer. 
 
 However, these results do not cover any cases where the dropout probability is less than 0.5, this is problematic as we cannot extrapolate these results from our 3 experiments, rather we need to test them.
@@ -165,6 +166,8 @@ However, these results do not cover any cases where the dropout probability is l
 For my combined regularisation method experiments I carefully chose what hyperparameters to use. From the Dropout experiments it was evident that setting the Dropout probability to 0.95 was the optimal choice since it gave the highest validation accuracy of 86.15\%. Thus for all my combination experiments I decided to keep the Dropout probability fixed at 0.95 to maximise validation accuracy. Now the only hyperparameter left to choose were the weight penalty techniques and their coefficients.
 
 For my combined I varied the dropout probabilities across the different layers to maximise validation accuracy
+
+My best model (Dropout probability=0.95, L2 regularisation parameter=1e-5) ended up producing a test accuracy of 84.87\% 
 }
 }
 
@@ -178,6 +181,7 @@ $$ h_i(x) = \max_{j \in [1,k]} z_{ij} $$
 $$\text{where } z_{ij}=x^T W_{...ij} + b_{ij} \text{ , and } W \in \mathbb{R}^{d \times m \times k} \text{ and } b \in \mathbb{R}^{m \times k}$$
 $$\text{ are learned parameters}$$
 
+%WORKKKK
 A single maxout unit can be interpreted as making a piecewise linear approximation to an arbitrary convex function. Maxout networks learn not just the relationship between hidden units, but also the activation function of each hidden unit. A multilayer perceptron containing 2 maxout units can be used to arbitrarily approximate any function
 }
 }
@@ -192,6 +196,7 @@ We know that Dropout is compatible with Maxout given Maxout was developed as a m
 %% Question 18: Give an overview of the experiment setup in \cite{goodfellow2013maxout} and analyse it from the point of view of how convincing their conclusions are 
 \newcommand{\questionEighteen} {
 \youranswer{
+%WORKKK
 The setup was good as they decided to test their novel method on benchmark datasets.
 
 However, I believe they should have provided error scores for models fitted with Dropout alone, and with Maxout alone. As althought they said it was "particularly well suited for training with dropout" it is still useful to be able to compare these metrics.
@@ -204,13 +209,14 @@ They decided to make a proof that proves Maxout is a universal approximator, thi
 
 %% Question 19: Briefly draw your conclusions based on the results from the previous sections (what are the take-away messages?) and conclude your report with a recommendation for future directions
 \newcommand{\questionNineteen} {
-\youranswer{Q19
+\youranswer{
+%WORKKK
 From these results it is evident that 
 
 
 In the future, to make our models perform even better there are a number of things we could still optimise further: the number of epochs used, the batch size, the depth and width of our model, the type of activation function used, the structure of the Dropout layers in our architecture, the L1/L2 regularization parameters, and the random seed used to initialize our weights and Dropout layers.
 
-The first step I would take towards optimising my models would be through optimising the batch size. Throughout all our experiments we set the batch size
+The first step I would take towards optimising my models would be through optimising the number of epochs used. Throughout all our experiments we set the number of epochs to be constant at 100. This is 
 
 To optimise the shape (width and depth) of our model I would mainly focus on increasing the width as our experiments from figure~\ref{fig:depth} indicate that increasing the depth has minimal performance returns after layer 2, given the model with 3 layers achieved an optimal validation accuracy of 84.41\% (a 0.01\% performance decrease from the 2 layer model). In contrast, we can see in figure~\ref{fig:width} that the performance returns for increasing the width are much greater (as illustrated by the difference between the optimal validation accuracies achieved by each width model), given the model with 128 units achieved an optimal validation accuracy of 83.48\% (a 1.47\% performance increase from the 64 unit model). However, we must note that this performance increase was due to an exponential increase in the number of hidden units ($2^6 -> 2^7$) and thus any further significant increases in performance may require another exponential increase in the number of hidden units and thus an exponential increase in computation.
 
