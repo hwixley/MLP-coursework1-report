@@ -226,11 +226,13 @@ From figure~\ref{fig:extra} we can see that for $p = 0.95$ and $1e-6 <= \beta <=
 
 In the future, to make our models perform even better there are a number of things we could still optimise further: the number of epochs used, the batch size, the depth and width of our model, the type of activation function used, the structure of the Dropout layers in our architecture, the L1/L2 regularization parameters, and the random seed used to initialize our weights and Dropout layers.
 
-The first step I would take towards optimising my models would be through optimising the number of epochs used. Throughout all our experiments we set the number of epochs to be constant at 100. This is 
+The first step I would take towards optimising my models would be through optimising the number of epochs used. Throughout all our experiments we set the number of epochs to be constant at 100. This is evidently not a realistic setting to use in implementation as we would rather choose the number of epochs dynamically based on what achieves the best validation accuracy.
+
+Next I would optimise the batch size used by gradient descent in my model. As this could dramatically improve our models ability to generalise: "it has been observed in practice that when using a larger batch there is a significant degradation in the quality of the model, as measured by its ability to generalize." - \cite{DBLP:journals/corr/KeskarMNST16}
 
 To optimise the shape (width and depth) of our model I would mainly focus on increasing the width as our experiments from figure~\ref{fig:depth} indicate that increasing the depth has minimal performance returns after layer 2, given the model with 3 layers achieved an optimal validation accuracy of 84.41\% (a 0.01\% performance decrease from the 2 layer model). In contrast, we can see in figure~\ref{fig:width} that the performance returns for increasing the width are much greater (as illustrated by the difference between the optimal validation accuracies achieved by each width model), given the model with 128 units achieved an optimal validation accuracy of 83.48\% (a 1.47\% performance increase from the 64 unit model). However, we must note that this performance increase was due to an exponential increase in the number of hidden units ($2^6 -> 2^7$) and thus any further significant increases in performance may require another exponential increase in the number of hidden units and thus an exponential increase in computation.
 
-To optimise this Dropout model even further we could optimise the number of Dropout layers used, their placement within the network (before which Affine layers), and the Dropout probabilities used for each of these layers.
+To optimise this Dropout model even further we could optimise the number of Dropout layers used, their placement within the network (before which Affine layers), and the unique Dropout probabilities used for each of these layers.
 
 To optimise the L1 and L2 regularization models even further we could optimise the regularisation parameter for the weights and bias separately.
 
