@@ -29,14 +29,14 @@
 
 %% Question 2: Summarise the effect increasing width and depth of the architecture had on overfitting
 \newcommand{\questionTwo} {
-\youranswer{improves the validation accuracy but worsens the validation error. This indicates that as we increase the width/depth of our model it begins to fit "noise" in the training data and thus implies that we should stop training earlier (when the validation accuracy is at it's maximum), and apply regularisation techniques to reduce the model's complexity and thereby reduce the amount of "noise" retained in the network}
+\youranswer{improves the validation accuracy but worsens the validation error. This indicates that as we increase the width/depth of our model it begins to fit "noise" in the training data and thus implies that we should stop training earlier (when the validation accuracy is at it's maximum), and apply regularisation techniques to reduce the model's complexity and thereby reduce the amount of "noise" information retained in the network}
 }
 %helps until the number of parameters becomes too high so that each layer just memorizes the training data, and you can end up with a neural network that fails to generalize well to new unseen data
 
 %% Question 3: Summarise what your results show you about the effect of the tested approaches on overfitting and the performance of the trained model
 \newcommand{\questionThree} {
 \youranswer{%dropout was the best technique as it produced the best performing model with 84.45\% validation accuracy at a probability of 0.9. Out of the weight penalty techniques L1 regularisation produced the best model with 84.22\% validation accuracy using a coefficient of 1e-4.
-dropout is the most effective regularisation technique for mitigating overfitting as it does a bit more than just regularisation and actually adds robustness to the network. This is due to the usage of deactivated neurons (which are ignored in the forward and backward propagations) which effectively compares our network with various different ones (given that deactivating neurons acts as a way to randomly change the dimensions of each layer) and chooses the best one. Although, the L1 and L2 regularisation techniques did not produce a validation accuracy as good as that of dropout, they did produce the best generalisation gaps and came very close to the performance produced by dropout
+dropout is the most effective regularisation technique for mitigating overfitting as it does a bit more than just regularisation and actually adds robustness to the network. This is due to it's usage of deactivated neurons (which are ignored in the forward and backward propagations) which effectively compares our network with various different ones (given that deactivating neurons acts as a way to randomly change the dimensions of each layer) and chooses the best one. Although, the L1 and L2 regularisation techniques did not produce a validation accuracy as good as that of Dropout, they did produce the best generalisation gaps and came very close to the performance produced by dropout
 %as it forces nodes within a layer to probabilistically take on more or less responsibility for the inputs.s, for all combinations of hidden units and layers dropout always improved performance.
 } 
 }
@@ -45,7 +45,7 @@ dropout is the most effective regularisation technique for mitigating overfittin
 \newcommand{\questionFour} {
 \youranswer{
 %WORKKKK
-for the EMNIST dataset the Dropout, L1 regularisation, and L2 regularisation techniques are all very useful for mitigating overfitting. From our Dropout experiments we found that for $0.7 \leqslant p \leqslant 0.95$ (where $p$ is the Dropout probability) that $p$ was directly proportional to validation accuracy and generalisation gap, and was optimal at a value of $0.95$. From our L1/L2 regularisation experiments we found that for $1^{-1} \leqslant \beta \leqslant 1^{-4}$ (where $\beta$ is the regularisation parameter) that $\beta$ was inversely proportional to generalisation gap and validation accuracy, 
+for the EMNIST dataset the Dropout, L1 regularisation, and L2 regularisation techniques are all very useful for mitigating overfitting. From our Dropout experiments we found that for $0.7 \leqslant p \leqslant 0.95$ (where $p$ is the Dropout probability) that $p$ was directly proportional to validation accuracy and generalisation gap, and was optimal at a value of $0.95$. From our L1/L2 regularisation experiments we found that for $1^{-1} \leqslant \beta \leqslant 1^{-4}$ (where $\beta$ is the regularisation parameter) that $\beta$ was inversely proportional to generalisation gap and validation accuracy, L2 regularisation produces better performing models, and L1 regularisation produces models with lower generalisation gaps.
 From our combined Dropout and L1/L2 regularisation experiments we found that for $p = 0.95$ and $1^{-6} \leqslant \beta \leqslant 1^{-4}$: L2 regularisation was the better weight penalty technique given it produced the best validation accuracies across all values of $\beta$, $\beta = 1^{-5}$ was the optimal parameter setting in this context for both L1 and L2 regularisation, and thus the parameters for the best performing model was $\beta = 1^{-5}$ for L2 regularisation and $p = 0.95$ for Dropout
 }
 }
@@ -174,7 +174,13 @@ From the results of our L1/L2 regularisation experiments as shown in table~\ref{
 
 For each of these regularisation techniques the smaller the parameter seemed to imply the better the accuracy, thus in conjunction with 1e-4 (since it achieved the best score on average across L1 and L2 experiments) I decided to use even smaller regularisation parameters for our combination experiments (1e-5 and 1e-6).
 
-Thus as shown in table~\ref{tab:hp_search} the hyper
+Thus as shown in table~\ref{tab:hp_search} the hyperparameter combinations I used were as follows:
+\begin{itemize}
+\setlength\itemsep{0em}
+    \item Dropout probability $= 0.95$
+    \item Weight penalty technique $\in \{\text{L1}, \text{L2}\}$
+    \item L1/L2 regularisation parameter $\in \{1^{-4}, 1^{-5}, 1^{-6}\}$
+\end{itemize}
 
 After running all these experiments my findings proved very useful. As shown in figure~\ref{fig:extra} L2 regularisation proved to be the superior weight penalty technique to L1 given it achieved higher validation accuracies across all possible weight decay settings. Although, it ended up producing worse generalisation gaps than L1 for all weight decay settings this was to be expected based on the generalisation gap results from the lone L1 and L2 experiments. In addition, again as shown in figure~\ref{fig:extra} 1e-5 proved to be the optimal regularisation parameter setting given it produced the best validation accuracies for both L1 and L2 regularisation. 
 
@@ -217,7 +223,7 @@ However, there were a few areas in this paper which were not exhaustively covere
 %% Question 19: Briefly draw your conclusions based on the results from the previous sections (what are the take-away messages?) and conclude your report with a recommendation for future directions
 \newcommand{\questionNineteen} {
 \youranswer{
-From these results it is evident that for the EMNIST dataset the Dropout, L1 regularisation, and L2 regularisation techniques are all very useful for mitigating overfitting. From our Dropout experiments (as shown in figure~\ref{fig:dropoutrates}) we found that for $0.7 \leqslant p \leqslant 0.95$ (where $p$ is the Dropout probability) that $p$ was directly proportional to validation accuracy and generalisation gap, and was optimal at a value of 0.95. From our L1/L2 regularisation experiments (as shown in figure~\ref{fig:weightrates}) we found that for $1^{-1} \leqslant \beta \leqslant 1^{-4}$ (where $\beta$ is the regularisation parameter) that $\beta$ was inversely proportional to generalisation gap and validation accuracy, 
+From these results it is evident that for the EMNIST dataset the Dropout, L1 regularisation, and L2 regularisation techniques are all very useful for mitigating overfitting. From our Dropout experiments (as shown in figure~\ref{fig:dropoutrates}) we found that for $0.7 \leqslant p \leqslant 0.95$ (where $p$ is the Dropout probability) that $p$ was directly proportional to validation accuracy and generalisation gap, and was optimal at a value of $0.95$. From our L1/L2 regularisation experiments (as shown in figure~\ref{fig:weightrates}) we found that for $1^{-1} \leqslant \beta \leqslant 1^{-4}$ (where $\beta$ is the L1/L2 regularisation parameter) that $\beta$ was inversely proportional to generalisation gap and validation accuracy, L2 regularisation produces better performing models, and L1 regularisation produces models with lower generalisation gaps.
 From our combined Dropout and L1/L2 regularisation experiments (as shown in figure~\ref{fig:hp_search}) we found that for $p = 0.95$ and $1^{-6} \leqslant \beta \leqslant 1^{-4}$: L2 regularisation was the better weight penalty technique given it produced the best validation accuracies across all values of $\beta$, $\beta = 1^{-5}$ was the optimal parameter setting in this context for both L1 and L2 regularisation, and thus the parameters for the best performing model was $\beta = 1^{-5}$ for L2 regularisation and $p = 0.95$ for Dropout.
 
 In the future, to make our models perform even better there are a number of things we could still optimise further: the number of epochs used, the batch size, the depth and width of our model, the type of activation function used, the structure of the Dropout layers in our architecture, the L1/L2 regularization parameters, and the random seed used to initialize our weights and Dropout layers. Lastly, I would like to test Maxout in conjunction with Dropout to enhance Dropout's abilities as a model averaging technique. 
