@@ -24,12 +24,12 @@
 
 %% Question 1: define overfitting
 \newcommand{\questionOne} {
-\youranswer{when a model learns the ”noise” in the training data and becomes too specific so that it does not do well when generalizing to new unseen data}
+\youranswer{when a model learns the ”noise” in the training data so that it does not do well when generalizing to new unseen data}
 }
 
 %% Question 2: Summarise the effect increasing width and depth of the architecture had on overfitting
 \newcommand{\questionTwo} {
-\youranswer{improves the validation accuracy but worsens the validation error, this indicates that our model is overfitting to "noise" in the training set and thus implies that we should stop training earlier (when the validation accuracy is at it's maximum), and apply regularisation techniques to penalise large weights and ultimately reduce the complexity of the model}
+\youranswer{improves the validation accuracy but worsens the validation error. This indicates that as we increase the width/depth of our model it begins to fit "noise" in the training data and thus implies that we should stop training earlier (when the validation accuracy is at it's maximum), and apply regularisation techniques to reduce the model's complexity and thereby reduce the amount of "noise" retained in the network}
 }
 %helps until the number of parameters becomes too high so that each layer just memorizes the training data, and you can end up with a neural network that fails to generalize well to new unseen data
 
@@ -45,7 +45,7 @@ dropout is the most effective regularisation technique for mitigating overfittin
 \newcommand{\questionFour} {
 \youranswer{
 %WORKKKK
-for the EMNIST dataset the Dropout, L1 regularisation, and L2 regularisation techniques are all very useful for mitigating overfitting. From our Dropout experiments we found that for $0.7 \leqslant p \leqslant 0.95$ (where $p$ is the Dropout probability) that $p$ was directly proportional to validation accuracy and generalisation gap, and was optimal at a value of 0.95. From our L1/L2 regularisation experiments we found that for $1^{-1} \leqslant \beta \leqslant 1^{-4}$ (where $\beta$ is the regularisation parameter) that $\beta$ was inversely proportional to generalisation gap and validation accuracy, 
+for the EMNIST dataset the Dropout, L1 regularisation, and L2 regularisation techniques are all very useful for mitigating overfitting. From our Dropout experiments we found that for $0.7 \leqslant p \leqslant 0.95$ (where $p$ is the Dropout probability) that $p$ was directly proportional to validation accuracy and generalisation gap, and was optimal at a value of $0.95$. From our L1/L2 regularisation experiments we found that for $1^{-1} \leqslant \beta \leqslant 1^{-4}$ (where $\beta$ is the regularisation parameter) that $\beta$ was inversely proportional to generalisation gap and validation accuracy, 
 From our combined Dropout and L1/L2 regularisation experiments we found that for $p = 0.95$ and $1^{-6} \leqslant \beta \leqslant 1^{-4}$: L2 regularisation was the better weight penalty technique given it produced the best validation accuracies across all values of $\beta$, $\beta = 1^{-5}$ was the optimal parameter setting in this context for both L1 and L2 regularisation, and thus the parameters for the best performing model was $\beta = 1^{-5}$ for L2 regularisation and $p = 0.95$ for Dropout
 }
 }
